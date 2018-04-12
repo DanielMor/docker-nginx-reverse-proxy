@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+
+  server:
+    build:
+      context: ./load-balancer
+    restart: always
+    links:
+      - app
+    ports:
+      - 9000:80
+
+  app:
+    build:
+      context: ./app
+    restart: always
+    ports:
+      - 9001:80
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
