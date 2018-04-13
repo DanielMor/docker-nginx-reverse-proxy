@@ -1,4 +1,4 @@
-version: "3"
+version: '3'
 
 services:
 
@@ -16,7 +16,9 @@ services:
       context: ./app
     restart: always
     ports:
-      - 9001:80
+      - 9001:9001
+    environment:
+      - PORT=9001
 
 networks:
   default:
